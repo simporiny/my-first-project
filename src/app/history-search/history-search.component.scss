@@ -1,0 +1,169 @@
+.container {
+    margin: 2rem auto;
+    max-width: 900px;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #343a40;
+      text-align: center;
+    }
+  
+    .form-group {
+      label {
+        display: block;
+        font-weight: bold;
+        color: #495057;
+        margin-bottom: 0.5rem;
+      }
+  
+      input {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 0.5rem;
+        width: 100%;
+        transition: all 0.3s;
+  
+        &:focus {
+          border-color: #007bff;
+          outline: none;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+      }
+    }
+    .text-end {
+      margin-top: 1rem;
+    
+      .btn-primary {
+        margin-left: auto;
+        display: inline-block;
+      }
+    }
+    
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+    }
+  
+    table {
+      margin-top: 1.5rem;
+      width: 100%;
+      border-collapse: collapse;
+  
+      thead {
+        tr {
+          background-color: #343a40;
+          color: #fff;
+  
+          th {
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background-color: #f8f9fa;
+          }
+  
+          &:hover {
+            background-color: #e9ecef;
+          }
+  
+          td {
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+          }
+        }
+      }
+    }
+  
+    p {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #6c757d;
+      text-align: center;
+    }
+  }
+  .navbar {
+  background-color: #343a40; // Dark background for the navbar
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff; // Change the color of the text (orange for example)
+    text-decoration: none; // Remove underline
+    display: block;
+    margin: 0 auto; // Center the brand text
+    text-align: center; // Ensure the text is centered
+
+    transition: color 0.3s ease;
+    &:hover {
+      color: #ff9933; // Lighter orange hover effect
+    }
+  }
+
+  .navbar-toggler {
+    border-color: #fff; // White border for the toggler
+    &:focus {
+      box-shadow: none; // Remove blue outline on focus
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; // Align the navbar items to the right
+
+    .nav-item {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      .nav-link {
+        color: #fff;
+        transition: color 0.3s ease;
+        &:hover {
+          color: #ccc; // Hover effect on links
+        }
+      }
+    }
+
+    .navbar-brander {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff; // Change the color of the text (orange for example)
+      text-decoration: none; // Remove underline
+      display: block;
+      text-align: center;
+
+      transition: color 0.3s ease;
+      &:hover {
+        color: #ff9933; // Lighter orange hover effect
+      }
+
+      // Remove margin from the first element to keep them aligned on the same row
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

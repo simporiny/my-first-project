@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="containerer">
+    <a class="navbar-brand">Booking</a>
+    <div class="navbar-nav ms-auto"> <!-- Added a wrapper for navbar items -->
+      <a class="navbar-brander" href="/booking">Booking</a>
+      <a class="navbar-brander" href="/historysearch">History</a>
+      <a class="navbar-brander" href="/login">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1>Search User Booking History</h1>
+  
+  <!-- Username Input -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input 
+      type="text" 
+      id="username" 
+      [(ngModel)]="username" 
+      class="form-control" 
+      placeholder="Enter Username"
+    />
+  </div>
+
+  <!-- Fetch History Button -->
+  <div class="text-end">
+    <button class="btn btn-primary mt-3" (click)="searchHistory()">Fetch History</button>
+  </div>
+
+  <!-- History Table -->
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>E-Mail</th>
+        <th>Package Name</th>
+        <th>Package Destination</th>
+        <th>Package Arrival</th>
+        <th>Package Price</th>
+        <th>Package Go</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of historyData">
+        <td>{{ item.stname }}</td>
+        <td>{{ item.course }}</td>
+        <td>{{ item.fee }}</td>
+        <td>{{ item.package_name }}</td>
+        <td>{{ item.package_desti }}</td>
+        <td>{{ item.package_arr }}</td>
+        <td>{{ item.package_price }}</td>
+        <td>{{ item.package_go }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!historyData?.length">No history found for this user.</p>
+</div>

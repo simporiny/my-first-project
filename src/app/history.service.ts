@@ -16,4 +16,11 @@ export class HistoryService {
     const historyData = { st_id, p_id }; // Creating the data object to send
     return this.http.post<any>(`${this.apiUrl}/add`, historyData); // Make the POST request
   }
+
+  getHistory(): Observable<any> {
+    return this.http.get<any>('http://localhost:8085/api/history');
+  }
+  getHistoryByUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/search?username=${username}`);
+  }
 }

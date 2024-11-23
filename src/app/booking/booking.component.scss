@@ -9,6 +9,7 @@
 
 // Navbar Styling
 // Navbar Styling
+// Navbar Styling
 .navbar {
   background-color: #343a40; // Dark background for the navbar
   padding: 1rem 2rem;
@@ -37,6 +38,10 @@
   }
 
   .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; // Align the navbar items to the right
+
     .nav-item {
       padding-left: 1rem;
       padding-right: 1rem;
@@ -49,27 +54,28 @@
         }
       }
     }
-  }
 
-  .navbar-brander {
-    font-size: 1;
-    font-weight: 600;
-    color: #ffffff; // Change the color of the text (orange for example)
-    text-decoration: none; // Remove underline
-    display: block;
-    margin: 0 auto; // Center the brand text
-    text-align: end; // Ensure the text is centered
+    .navbar-brander {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff; // Change the color of the text (orange for example)
+      text-decoration: none; // Remove underline
+      display: block;
+      text-align: center;
 
-    transition: color 0.3s ease;
-    &:hover {
-      color: #ff9933; // Lighter orange hover effect
+      transition: color 0.3s ease;
+      &:hover {
+        color: #ff9933; // Lighter orange hover effect
+      }
+
+      // Remove margin from the first element to keep them aligned on the same row
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
     }
   }
-
-  .navbar-collapse {
-    justify-content: flex-end; // Align the navbar items to the right
-  }
 }
+
 
 
 
