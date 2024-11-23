@@ -1,0 +1,40 @@
+<div class="background-container">
+  <div class="form-container">
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" [(ngModel)]="username" />
+
+      <label for="password">Password: </label>
+      <input type="password" id="password" [(ngModel)]="password" />
+
+      <button (click)="login()">LOGIN</button>
+
+      <!-- Register Button -->
+      <button (click)="showRegisterForm = !showRegisterForm">
+        {{ showRegisterForm ? 'Cancel' : 'Register' }}
+      </button>
+
+      <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
+    </div>
+
+    <!-- Conditional Register Form -->
+    <div *ngIf="showRegisterForm">
+      <label for="newUsername">New Username: </label>
+      <input type="text" id="newUsername" [(ngModel)]="newUsername" />
+
+      <label for="newPassword">New Password: </label>
+      <input type="password" id="newPassword" [(ngModel)]="newPassword" />
+
+      <label for="reConfirmPassword">Confirm Password: </label>
+      <input type="password" id="reConfirmPassword" [(ngModel)]="reConfirmPassword" />
+
+      <label for="phone">Phone: </label>
+      <input type="tel" id="phone" [(ngModel)]="phone" placeholder="Enter your phone number" />
+
+      <label for="email">Email: </label>
+      <input type="email" id="email" placeholder="Enter your email address" />
+
+      <button (click)="register()">Register</button>
+    </div>
+  </div>
+</div>

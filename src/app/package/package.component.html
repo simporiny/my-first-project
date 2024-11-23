@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Booking Management</a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/user" routerLinkActive="active">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/package" routerLinkActive="active">Package</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/booking" routerLinkActive="active">Booking</a>
+          </li>
+          <li class="nav-item" style="margin-left: auto;">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <div class="card">
+      <h1>Package</h1>
+      <form>
+        <div class="form-group">
+          <label for="package_name">Package Name</label>
+          <input type="text" [(ngModel)]="package_name" [ngModelOptions]="{standalone: true}" id="package_name" class="form-control" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+          <label for="package_desti">Package Destination</label>
+          <input type="text" [(ngModel)]="package_desti" [ngModelOptions]="{standalone: true}" id="package_desti" class="form-control" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+          <label for="package_arr">Package Origin</label>
+          <input type="text" [(ngModel)]="package_arr" [ngModelOptions]="{standalone: true}" id="package_arr" class="form-control" placeholder="Enter Name">
+        </div>
+    
+        <div class="form-group">
+          <label for="package_price">Package Price</label>
+          <input type="text" [(ngModel)]="package_price" [ngModelOptions]="{standalone: true}" id="package_price" class="form-control" placeholder="Enter Price">
+        </div>
+    
+        <div class="form-group">
+          <label for="package_go">Go</label>
+          <input type="text" [(ngModel)]="package_go" [ngModelOptions]="{standalone: true}" id="package_go" class="form-control" placeholder="Enter Go">
+        </div>
+    
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Student Table -->
+  <div class="container mt-4">
+    <h1>Package Table</h1>
+    <table class="table">
+      <thead>
+        <h1 *ngIf="!isReslutLoaded">Loading.................</h1>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Package Name</th>
+          <th scope="col">Package Destination/th>
+          <th scope="col">Package Origin</th>
+          <th scope="col">Package Price</th>
+          <th scope="col">Package Go</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let packageItem of packageArray">
+          <td>{{packageItem.package_id}}</td>
+          <td>{{packageItem.package_name}}</td>
+          <td>{{packageItem.package_desti}}</td>
+          <td>{{packageItem.package_arr}}</td>
+          <td>{{packageItem.package_price}}</td>
+          <td>{{packageItem.package_go}}</td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="setUpdate(packageItem)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="setDelete(packageItem)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
