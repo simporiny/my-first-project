@@ -30,9 +30,18 @@ export class BookingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadPackages(); // Fetch packages
-    this.loadStudents(); // Fetch students
+    this.loadPackages(); // ดึงข้อมูล packages
+    this.loadStudents(); // ดึงข้อมูล students
+  
+    // ดึง username จาก sessionStorage
+    const savedUsername = sessionStorage.getItem('username');
+    if (savedUsername) {
+      this.enteredStudentName = savedUsername; // ตั้งค่า username ให้กับช่องกรอกชื่อ
+      this.checkStudentName(); // ตรวจสอบว่ามี student หรือไม่
+    }
   }
+  
+  
 
   // Method to load packages from the service
   loadPackages(): void {

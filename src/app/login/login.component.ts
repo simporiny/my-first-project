@@ -27,11 +27,14 @@ export class LoginComponent {
     this.loginService.login(this.username, this.password).subscribe(
       (response) => {
         if (response.status) {
-          // Check if the user is an admin
+          // เก็บ username ใน sessionStorage
+          sessionStorage.setItem('username', this.username);
+  
+          // เช็คว่าผู้ใช้เป็น admin หรือไม่
           if (this.username === 'admin') {
-            this.router.navigate(['/user']);  // Navigate to /user if the user is admin
+            this.router.navigate(['/user']); // นำไปที่ /user ถ้าเป็น admin
           } else {
-            this.router.navigate(['/booking']);  // Otherwise, navigate to /booking
+            this.router.navigate(['/booking']); // ถ้าไม่ใช่ admin นำไปที่ /booking
           }
         }
       },
@@ -40,6 +43,8 @@ export class LoginComponent {
       }
     );
   }
+  
+  
   
 
   // Register function to validate and submit the registration

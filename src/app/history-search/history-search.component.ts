@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { HistoryService } from '../history.service'; // Assuming you have a service for history fetching
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,11 +11,19 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./history-search.component.scss'],
   // imports: [CommonModule, FormsModule]
 })
-export class HistorySearchComponent {
+export class HistorySearchComponent implements OnInit {
   username: string = ''; // Store the username
   historyData: any[] = []; // Store the history data
 
   constructor(private historyService: HistoryService) {}
+
+  ngOnInit(): void {
+    // Retrieve the username from sessionStorage during initialization
+    const storedUsername = sessionStorage.getItem('username');
+    if (storedUsername) {
+      this.username = storedUsername; // Set it to the username input
+    }
+  }
 
   searchHistory() {
     if (this.username) {
