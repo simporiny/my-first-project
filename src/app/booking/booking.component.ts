@@ -102,13 +102,16 @@ export class BookingComponent implements OnInit {
     if (this.foundStudent && this.selectedPackage) {
       const st_id = this.foundStudent.id;  // Assuming 'id' is the student ID in your student table
       const p_id = this.selectedPackage.package_id; // Package ID
-
+  
       // Call the history service to insert the data
       this.historyService.addHistory(st_id, p_id).subscribe(
         (response) => {
           if (response.status) {
             console.log('History record added successfully');
             alert('Booking Successful');
+            
+            // After booking, reduce the package_left by 1
+            this.updatePackageLeft(p_id);
           } else {
             console.error('Error adding history');
           }
@@ -120,5 +123,24 @@ export class BookingComponent implements OnInit {
     } else {
       console.error('Student or Package not selected');
     }
+  }
+  
+  // Method to reduce package_left
+  updatePackageLeft(packageId: number): void {
+    const decrementValue = 1;  // Decrease the package_left by 1 after a booking
+  
+    // Call the service to update the package_left
+    this.packageService.updatePackageLeft(packageId, decrementValue).subscribe(
+      (response) => {
+        if (response.status) {
+          console.log('Package left updated successfully');
+        } else {
+          console.error('Error updating package left');
+        }
+      },
+      (error) => {
+        console.error('Error updating package left', error);
+      }
+    );
   }
 }

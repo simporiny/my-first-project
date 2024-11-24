@@ -48,9 +48,26 @@
         </div>
     
         <div class="form-group">
-          <label for="package_go">Go</label>
+          <label for="package_go">Package Go</label>
           <input type="text" [(ngModel)]="package_go" [ngModelOptions]="{standalone: true}" id="package_go" class="form-control" placeholder="Enter Go">
         </div>
+
+        <!-- Add these fields to your form -->
+        <div class="form-group">
+          <label for="package_back">Package Back:</label>
+          <input type="text" id="package_back" [(ngModel)]="package_back" name="package_back" class="form-control" placeholder="Enter Back">
+        </div>
+
+        <div class="form-group">
+          <label for="package_desc">Package Description:</label>
+          <input type="text" id="package_desc" [(ngModel)]="package_desc" name="package_desc" class="form-control" placeholder="Enter Description">
+        </div>
+
+        <div class="form-group">
+          <label for="package_left">Package Left:</label>
+          <input type="number" id="package_left" [(ngModel)]="package_left" name="package_left" class="form-control" placeholder="Enter Left">
+        </div>
+
     
         <button type="submit" class="btn btn-primary mt-4" (click)="save()">Save</button>
       </form>
@@ -70,6 +87,9 @@
           <th scope="col">Package Origin</th>
           <th scope="col">Package Price</th>
           <th scope="col">Package Go</th>
+          <th scope="col">Package Back</th>
+          <th scope="col">Package Description</th>
+          <th scope="col">Package Left</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -81,6 +101,9 @@
           <td>{{packageItem.package_arr}}</td>
           <td>{{packageItem.package_price}}</td>
           <td>{{packageItem.package_go}}</td>
+          <td>{{packageItem.package_back}}</td>
+          <td>{{packageItem.package_desc}}</td>
+          <td>{{packageItem.package_left}}</td>
           <td>
             <button type="button" class="btn btn-success" (click)="setUpdate(packageItem)">Edit</button>
             <button type="button" class="btn btn-danger" (click)="setDelete(packageItem)">Delete</button>

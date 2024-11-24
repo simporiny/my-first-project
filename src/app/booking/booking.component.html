@@ -27,10 +27,10 @@
   
     <label for="packageSelect">Select Package</label>
     <select id="packageSelect" [(ngModel)]="selectedPackageId" name="package_id" (change)="onPackageSelect()">
-      <option *ngFor="let package of packages" [value]="package.package_id">
-        {{ package.package_name }}
+      <option *ngFor="let package of packages" [value]="package.package_id" [disabled]="package.package_left === 0">
+        {{ package.package_name }} ({{ package.package_left }} left)
       </option>
-    </select>
+    </select>    
 
     <button type="button" (click)="onSubmit()">Submit</button>
   </form>
@@ -54,7 +54,9 @@
       <p><strong>Package Destination:</strong> {{ selectedPackage.package_desti }}</p>
       <p><strong>Package Origin:</strong> {{ selectedPackage.package_arr }}</p>
       <p><strong>Price:</strong> {{ selectedPackage.package_price }}</p>
-      <p><strong>Description:</strong> {{ selectedPackage.package_go }}</p>
+      <p><strong>Go:</strong> {{ selectedPackage.package_go }}</p>
+      <p><strong>Back:</strong> {{ selectedPackage.package_back }}</p>
+      <p><strong>Description:</strong> {{ selectedPackage.package_desc }}</p>
       <!-- Add other package details as needed -->
     </div>
   </div>
