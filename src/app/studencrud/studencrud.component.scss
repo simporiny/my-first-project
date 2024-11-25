@@ -1,137 +1,203 @@
-// Style for the registration form and the table
+/* Main container */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    .card {
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      background-color: #fff;
-      margin-bottom: 40px;
+.card {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 40px;
+}
 
-      h1 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 20px;
-      }
-    }
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-    .form-group {
-      margin-bottom: 15px;
+.form-group {
+  margin-bottom: 15px;
+}
 
-      label {
-        font-size: 14px;
-        color: #333;
-        font-weight: bold;
-      }
+label {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
 
-      input.form-control {
-        width: 98%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-        margin-top: 5px;
-      }
-    }
+input.form-control {
+  width: 100%; /* Adjusted to fit full width */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  margin-top: 5px;
+}
 
-    .btn {
-      font-size: 16px;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+/* Button Styles */
+.btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .btn-primary {
-      background-color: #007bff;
-      border: none;
-      color: #fff;
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+}
 
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
+.btn-primary:hover {
+  background-color: #0056b3;
+}
 
-    .btn-success {
-      background-color: #28a745;
-      border: none;
-      color: #fff;
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  color: #fff;
+  width: 100px;
+  margin-bottom: 10px;
+}
 
-      &:hover {
-        background-color: #218838;
-      }
-    }
+.btn-success:hover {
+  background-color: #218838;
+}
 
-    .btn-danger {
-      background-color: #dc3545;
-      border: none;
-      color: #fff;
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  width: 100px;
+}
 
-      &:hover {
-        background-color: #c82333;
-      }
-    }
+.btn-danger:hover {
+  background-color: #c82333;
+}
 
-    h1 {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 20px;
-    }
-  }
-
-// Styling for the table
+/* Styling for the table */
 table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+td {
+  color: #555;
+}
+
+button {
+  margin: 0 5px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffd700;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  /* Form and button adjustments */
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    width: 100%; /* Buttons stack and take full width on small screens */
+  }
+
+  .btn-primary,
+  .btn-success,
+  .btn-danger {
     width: 100%;
-    border-collapse: collapse;
-
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f8f9fa;
-      color: #333;
-    }
-
-    td {
-      color: #555;
-    }
-
-    button {
-      margin: 0 5px;
-    }
+    margin-bottom: 10px;
   }
 
-  .navbar {
-    background-color: #343a40; /* Dark background color for navbar */
-  }
-
-  .navbar-brand {
-    color: #fff;
-    font-size: 1.5rem;
-    text-decoration: none; /* Remove underline */
-  }
-
+  /* Navbar adjustments */
   .navbar-nav {
-    display: flex; /* Ensure navbar items stay in a horizontal row */
-    padding-left: 0; /* Remove default padding */
-    list-style: none; /* Remove bullet points */
+    flex-direction: column;
+    align-items: center;
   }
 
   .navbar-nav .nav-item {
-    margin-right: 15px; /* Add some space between navbar items */
+    margin-bottom: 10px;
+    margin-right: 0;
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none; /* Remove underline */
+    font-size: 1rem;
   }
 
-  .navbar-nav .nav-item .nav-link:hover {
-    color: #ffd700; /* Change color on hover */
+  /* Table adjustments */
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
   }
+
+  th, td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .table-buttons {
+    display: block;
+  }
+}
