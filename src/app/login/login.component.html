@@ -9,7 +9,6 @@
 
       <button (click)="login()">LOGIN</button>
 
-      <!-- Register Button -->
       <button (click)="showRegisterForm = !showRegisterForm">
         {{ showRegisterForm ? 'Cancel' : 'Register' }}
       </button>
@@ -17,7 +16,6 @@
       <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
     </div>
 
-    <!-- Conditional Register Form -->
     <div *ngIf="showRegisterForm">
       <label for="newUsername">New Username: </label>
       <input type="text" id="newUsername" [(ngModel)]="newUsername" />

@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PackageComponent } from './package/package.component';
 import { BookingComponent } from './booking/booking.component';
 import { HistoryComponent } from './history/history.component';
-import { HistorySearchComponent } from './history-search/history-search.component'; // import BookingComponent
+import { HistorySearchComponent } from './history-search/history-search.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +16,13 @@ import { HistorySearchComponent } from './history-search/history-search.componen
     StudencrudComponent,
     PackageComponent,
     HistorySearchComponent
-    // No need to declare BookingComponent here
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BookingComponent // Import the BookingComponent here
+    BookingComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand">Booking</a>
-    <div class="navbar-nav ms-auto"> <!-- Added a wrapper for navbar items -->
+    <div class="navbar-nav ms-auto">
       <a class="navbar-brander" href="/booking">Booking</a>
       <a class="navbar-brander" href="/historysearch">History</a>
       <a class="navbar-brander" href="/login">Logout</a>
@@ -21,8 +21,7 @@
       placeholder="Type username"
       readonly
     />
-    
-    <!-- Button to Check -->
+
     <button type="button" (click)="checkStudentName()">Check</button>
   
     <label for="packageSelect">Select Package</label>
@@ -35,10 +34,6 @@
     <button type="button" (click)="onSubmit()">Submit</button>
   </form>
   
-  <!-- Show a message if the student name is found -->
-  <!-- <p *ngIf="isStudentFound !== null">
-    {{ isStudentFound ? "Student found!" : "Student not found!" }}
-  </p> -->
   <div *ngIf="isStudentFound" class="details-container">
     <div class="left-side">
       <h3>Student Details</h3>
@@ -47,7 +42,6 @@
       <p><strong>E-Mail:</strong> {{ foundStudent.fee }}</p>
     </div>
   
-    <!-- Show the selected package details -->
     <div *ngIf="selectedPackage" class="right-side">
       <h3>Package Details</h3>
       <p><strong>Package Name:</strong> {{ selectedPackage.package_name }}</p>
@@ -57,6 +51,5 @@
       <p><strong>Go:</strong> {{ selectedPackage.package_go }}</p>
       <p><strong>Back:</strong> {{ selectedPackage.package_back }}</p>
       <p><strong>Description:</strong> {{ selectedPackage.package_desc }}</p>
-      <!-- Add other package details as needed -->
     </div>
   </div>

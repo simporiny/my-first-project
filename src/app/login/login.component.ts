@@ -19,7 +19,7 @@ export class LoginComponent {
   phone: string = '';
   email: string = '';
   errorMessage: string | null = null;
-  showRegisterForm: boolean = false; // To control showing register form
+  showRegisterForm: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -27,14 +27,12 @@ export class LoginComponent {
     this.loginService.login(this.username, this.password).subscribe(
       (response) => {
         if (response.status) {
-          // เก็บ username ใน sessionStorage
           sessionStorage.setItem('username', this.username);
   
-          // เช็คว่าผู้ใช้เป็น admin หรือไม่
           if (this.username === 'admin') {
-            this.router.navigate(['/user']); // นำไปที่ /user ถ้าเป็น admin
+            this.router.navigate(['/user']); 
           } else {
-            this.router.navigate(['/booking']); // ถ้าไม่ใช่ admin นำไปที่ /booking
+            this.router.navigate(['/booking']); 
           }
         }
       },
@@ -43,11 +41,7 @@ export class LoginComponent {
       }
     );
   }
-  
-  
-  
 
-  // Register function to validate and submit the registration
   register() {
     if (this.newPassword !== this.reConfirmPassword) {
       this.errorMessage = 'Passwords do not match!';
@@ -59,8 +53,8 @@ export class LoginComponent {
       return;
     }
   
-    const phonePattern = /^[0-9]{10}$/;  // Basic phone validation (10 digits)
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Basic email validation
+    const phonePattern = /^[0-9]{10}$/; 
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
   
     if (!phonePattern.test(this.phone)) {
       this.errorMessage = 'Please enter a valid phone number (10 digits).';
@@ -71,21 +65,20 @@ export class LoginComponent {
       this.errorMessage = 'Please enter a valid email address.';
       return;
     }
-  
-    // Call the API to register the user
+
     const studentData = {
-      stname: this.newUsername,  // Map to stname
-      pwd: this.newPassword,     // Map to pwd
-      course: this.phone,        // Map to course
-      fee: this.email            // Map to fee
+      stname: this.newUsername,  
+      pwd: this.newPassword,    
+      course: this.phone,      
+      fee: this.email            
     };
   
     this.loginService.registerStudent(studentData).subscribe(
       (response: { status: any; message: string | null; }) => {
         if (response.status) {
           console.log('Registration successful');
-          this.showRegisterForm = false; // Hide register form after successful registration
-          this.errorMessage = null; // Reset error message
+          this.showRegisterForm = false;
+          this.errorMessage = null;
         } else {
           this.errorMessage = response.message;
         }

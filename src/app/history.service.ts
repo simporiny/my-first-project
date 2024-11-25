@@ -11,10 +11,9 @@ export class HistoryService {
 
   constructor(private http: HttpClient) { }
 
-  // Method to insert history data
   addHistory(st_id: number, p_id: number): Observable<any> {
-    const historyData = { st_id, p_id }; // Creating the data object to send
-    return this.http.post<any>(`${this.apiUrl}/add`, historyData); // Make the POST request
+    const historyData = { st_id, p_id };
+    return this.http.post<any>(`${this.apiUrl}/add`, historyData) // Make the POST request
   }
 
   getHistory(): Observable<any> {

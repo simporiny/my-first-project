@@ -19,7 +19,6 @@ export class PackageComponent {
   package_price: string = "";
   package_go: string = "";
   
-  // New fields
   package_back: string = "";
   package_desc: string = "";
   package_left: string = "";
@@ -50,9 +49,9 @@ export class PackageComponent {
       "package_go": this.package_go,
       "package_desti": this.package_desti,
       "package_arr": this.package_arr,
-      "package_back": this.package_back,  // New field
-      "package_desc": this.package_desc,  // New field
-      "package_left": this.package_left   // New field
+      "package_back": this.package_back,  
+      "package_desc": this.package_desc,
+      "package_left": this.package_left  
     };
 
     this.http.post("http://localhost:8085/api/package/add", bodyData).subscribe((resultData: any) => {
@@ -68,9 +67,9 @@ export class PackageComponent {
     this.package_go = data.package_go;
     this.package_desti = data.package_desti;
     this.package_arr = data.package_arr;
-    this.package_back = data.package_back;  // New field
-    this.package_desc = data.package_desc;  // New field
-    this.package_left = data.package_left;  // New field
+    this.package_back = data.package_back; 
+    this.package_desc = data.package_desc; 
+    this.package_left = data.package_left;  
     this.currentPackageID = data.package_id;
   }
 
@@ -86,9 +85,9 @@ export class PackageComponent {
       "package_go": this.package_go,
       "package_desti": this.package_desti,
       "package_arr": this.package_arr,
-      "package_back": this.package_back,  // New field
-      "package_desc": this.package_desc,  // New field
-      "package_left": this.package_left   // New field
+      "package_back": this.package_back, 
+      "package_desc": this.package_desc,  
+      "package_left": this.package_left   
     };
 
     this.http.put(`http://localhost:8085/api/package/update/${this.currentPackageID}`, bodyData)

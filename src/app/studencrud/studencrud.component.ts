@@ -38,8 +38,6 @@ export class StudencrudComponent {
   
   register()
   {
-   // this.isLogin = false; 
-   // alert("hi");
     let bodyData = {
       "stname" : this.stname,
       "course" : this.course,
@@ -49,12 +47,9 @@ export class StudencrudComponent {
     this.http.post("http://localhost:8085/api/student/add",bodyData).subscribe((resultData: any)=>
     {
         console.log(resultData);
-        alert("Employee Registered Successfully");
+        alert("Students Registered Successfully");
         this.getAllStudent();
         window.location.reload();
-      //  this.name = '';
-      //  this.address = '';
-      //  this.mobile  = 0;
     });
   }
   setUpdate(data: any) 

@@ -1,9 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Booking Management</a>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -52,7 +49,6 @@
           <input type="text" [(ngModel)]="package_go" [ngModelOptions]="{standalone: true}" id="package_go" class="form-control" placeholder="Enter Go">
         </div>
 
-        <!-- Add these fields to your form -->
         <div class="form-group">
           <label for="package_back">Package Back:</label>
           <input type="text" id="package_back" [(ngModel)]="package_back" name="package_back" class="form-control" placeholder="Enter Back">
@@ -73,8 +69,7 @@
       </form>
     </div>
   </div>
-  
-  <!-- Student Table -->
+
   <div class="container mt-4">
     <h1>Package Table</h1>
     <table class="table">

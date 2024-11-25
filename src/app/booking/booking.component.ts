@@ -15,12 +15,12 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule]
 })
 export class BookingComponent implements OnInit {
-  packages: any[] = []; // Store package data
-  students: any[] = []; // Store student data
-  selectedPackageId: number | undefined; // Store selected package ID
-  enteredStudentName: string = ''; // Store the entered student name
-  isStudentFound: boolean | null = null; // Flag to indicate if the student name is found
-  foundStudent: any | null = null; // Store the found student details
+  packages: any[] = [];
+  students: any[] = [];
+  selectedPackageId: number | undefined;
+  enteredStudentName: string = '';
+  isStudentFound: boolean | null = null;
+  foundStudent: any | null = null;
   selectedPackage: any | null = null;
 
   constructor(
@@ -30,26 +30,23 @@ export class BookingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadPackages(); // ดึงข้อมูล packages
-    this.loadStudents(); // ดึงข้อมูล students
+    this.loadPackages(); 
+    this.loadStudents(); 
   
     // ดึง username จาก sessionStorage
     const savedUsername = sessionStorage.getItem('username');
     if (savedUsername) {
-      this.enteredStudentName = savedUsername; // ตั้งค่า username ให้กับช่องกรอกชื่อ
-      this.checkStudentName(); // ตรวจสอบว่ามี student หรือไม่
+      this.enteredStudentName = savedUsername;
+      this.checkStudentName();
     }
   }
-  
-  
 
-  // Method to load packages from the service
   loadPackages(): void {
     this.packageService.getPackages().subscribe(
       (response) => {
         if (response.status) {
-          this.packages = response.data; // Set the package data
-          console.log('Packages:', this.packages); // Debugging
+          this.packages = response.data;
+          console.log('Packages:', this.packages);
         } else {
           console.error('Error fetching packages');
         }
@@ -60,13 +57,11 @@ export class BookingComponent implements OnInit {
     );
   }
   
-
-  // Method to load students from the service
   loadStudents(): void {
     this.studentService.getStudents().subscribe(
       (response) => {
         if (response.status) {
-          this.students = response.data; // Set the student data
+          this.students = response.data;
         } else {
           console.error('Error fetching students');
         }
@@ -77,7 +72,6 @@ export class BookingComponent implements OnInit {
     );
   }
 
-  // Method to check if the entered student name exists
   checkStudentName(): void {
     const found = this.students.find(
       (student) =>
@@ -85,32 +79,30 @@ export class BookingComponent implements OnInit {
     );
     if (found) {
       this.isStudentFound = true;
-      this.foundStudent = found; // Store the found student data
+      this.foundStudent = found; 
     } else {
       this.isStudentFound = false;
-      this.foundStudent = null; // Clear the student data if not found
+      this.foundStudent = null; 
     }
   }
 
   onPackageSelect(): void {
     this.selectedPackage = this.packages.find(
-      (pkg) => pkg.package_id === Number(this.selectedPackageId) // Ensuring type consistency
+      (pkg) => pkg.package_id === Number(this.selectedPackageId) 
     );
   }
   
   onSubmit(): void {
     if (this.foundStudent && this.selectedPackage) {
-      const st_id = this.foundStudent.id;  // Assuming 'id' is the student ID in your student table
-      const p_id = this.selectedPackage.package_id; // Package ID
+      const st_id = this.foundStudent.id;  
+      const p_id = this.selectedPackage.package_id;
   
-      // Call the history service to insert the data
       this.historyService.addHistory(st_id, p_id).subscribe(
         (response) => {
           if (response.status) {
             console.log('History record added successfully');
             alert('Booking Successful');
             
-            // After booking, reduce the package_left by 1
             this.updatePackageLeft(p_id);
             window.location.reload();
           } else {
@@ -126,11 +118,9 @@ export class BookingComponent implements OnInit {
     }
   }
   
-  // Method to reduce package_left
   updatePackageLeft(packageId: number): void {
-    const decrementValue = 1;  // Decrease the package_left by 1 after a booking
+    const decrementValue = 1; 
   
-    // Call the service to update the package_left
     this.packageService.updatePackageLeft(packageId, decrementValue).subscribe(
       (response) => {
         if (response.status) {

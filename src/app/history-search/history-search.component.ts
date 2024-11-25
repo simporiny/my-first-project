@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { HistoryService } from '../history.service'; // Assuming you have a service for history fetching
+import { HistoryService } from '../history.service'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,16 +12,15 @@ import { FormsModule } from '@angular/forms';
   // imports: [CommonModule, FormsModule]
 })
 export class HistorySearchComponent implements OnInit {
-  username: string = ''; // Store the username
-  historyData: any[] = []; // Store the history data
+  username: string = ''; 
+  historyData: any[] = []; 
 
   constructor(private historyService: HistoryService) {}
 
   ngOnInit(): void {
-    // Retrieve the username from sessionStorage during initialization
     const storedUsername = sessionStorage.getItem('username');
     if (storedUsername) {
-      this.username = storedUsername; // Set it to the username input
+      this.username = storedUsername; 
     }
   }
 
@@ -36,7 +35,7 @@ export class HistorySearchComponent implements OnInit {
         }
       );
     } else {
-      this.historyData = []; // Clear data if no username is entered
+      this.historyData = [];
     }
   }
 }
