@@ -112,6 +112,7 @@ export class BookingComponent implements OnInit {
             
             // After booking, reduce the package_left by 1
             this.updatePackageLeft(p_id);
+            window.location.reload();
           } else {
             console.error('Error adding history');
           }

@@ -96,6 +96,7 @@ export class PackageComponent {
         console.log(resultData);
         if (resultData.status) {
           alert("Package updated successfully");
+          window.location.reload();
         } else {
           alert("Failed to update package");
         }
