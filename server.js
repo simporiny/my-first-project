@@ -71,7 +71,7 @@ server.post("/api/student/add", (req, res) => {
       return res.status(500).send({ status: false, message: "Database error" });
     }
     if (results.length > 0) {
-      return res.status(400).send({ status: false, message: "Student name already exists" });
+      return res.status(400).send({ status: false, message: "User name already exists" });
     }
     const details = {
       stname: stname,
@@ -82,9 +82,9 @@ server.post("/api/student/add", (req, res) => {
     const sql = "INSERT INTO student SET ?";
     db.query(sql, details, (error) => {
       if (error) {
-        return res.status(500).send({ status: false, message: "Student creation failed" });
+        return res.status(500).send({ status: false, message: "User creation failed" });
       } else {
-        return res.status(200).send({ status: true, message: "Student created successfully" });
+        return res.status(200).send({ status: true, message: "User created successfully" });
       }
     });
   });
