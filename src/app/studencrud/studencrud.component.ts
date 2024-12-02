@@ -47,7 +47,7 @@ export class StudencrudComponent {
     this.http.post("http://localhost:8085/api/student/add",bodyData).subscribe((resultData: any)=>
     {
         console.log(resultData);
-        alert("Students Registered Successfully");
+        alert("User Registered Successfully");
         this.getAllStudent();
         window.location.reload();
     });
@@ -75,7 +75,7 @@ export class StudencrudComponent {
     this.http.put("http://localhost:8085/api/student/update"+ "/"+ this.currentStudentID,bodyData).subscribe((resultData: any)=>
     {
         console.log(resultData);
-        alert("Student Registered Updateddd")
+        alert("User Registered Updateddd")
         this.getAllStudent();
       
     });
@@ -97,7 +97,7 @@ export class StudencrudComponent {
     this.http.delete("http://localhost:8085/api/student/delete"+ "/"+ data.id).subscribe((resultData: any)=>
     {
         console.log(resultData);
-        alert("Student Deletedddd")
+        alert("User Deletedddd")
         this.getAllStudent();
     });
   }

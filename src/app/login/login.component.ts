@@ -48,23 +48,23 @@ export class LoginComponent {
       return;
     }
   
-    if (!this.phone || !this.email) {
-      this.errorMessage = 'Please fill in both phone and email fields.';
-      return;
-    }
+    // if (!this.phone || !this.email) {
+    //   this.errorMessage = 'Please fill in both phone and email fields.';
+    //   return;
+    // }
   
-    const phonePattern = /^[0-9]{10}$/; 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    // const phonePattern = /^[0-9]{10}$/; 
+    // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
   
-    if (!phonePattern.test(this.phone)) {
-      this.errorMessage = 'Please enter a valid phone number (10 digits).';
-      return;
-    }
+    // if (!phonePattern.test(this.phone)) {
+    //   this.errorMessage = 'Please enter a valid phone number (10 digits).';
+    //   return;
+    // }
   
-    if (!emailPattern.test(this.email)) {
-      this.errorMessage = 'Please enter a valid email address.';
-      return;
-    }
+    // if (!emailPattern.test(this.email)) {
+    //   this.errorMessage = 'Please enter a valid email address.';
+    //   return;
+    // }
 
     const studentData = {
       stname: this.newUsername,  
